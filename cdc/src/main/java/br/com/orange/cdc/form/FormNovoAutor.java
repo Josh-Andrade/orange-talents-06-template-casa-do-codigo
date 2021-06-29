@@ -4,12 +4,14 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.orange.cdc.config.validation.ValorUnico;
 import br.com.orange.cdc.domain.Autor;
 
 public class FormNovoAutor {
 
 	@NotBlank
 	@Email
+	@ValorUnico(message = "Email já cadastrado", campo = "email", entity = "Autor")
 	private String email;
 	@NotBlank
 	private String nome;

@@ -25,6 +25,7 @@ public class Autor {
 	private String nome;
 	@NotBlank
 	@Size(max = 400)
+	@Column(length = 400)
 	private String descricao;
 	private LocalDateTime horaCadastro = LocalDateTime.now();
 	
