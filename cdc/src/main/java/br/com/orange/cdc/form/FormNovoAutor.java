@@ -28,4 +28,16 @@ public class FormNovoAutor {
 		return new Autor(email, nome, descricao);
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
 }

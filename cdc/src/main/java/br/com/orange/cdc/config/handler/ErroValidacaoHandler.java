@@ -1,4 +1,4 @@
-package br.com.orange.cdc.config.validation;
+package br.com.orange.cdc.config.handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,6 @@ public class ErroValidacaoHandler {
 	public List<FormErrorDto> handler(MethodArgumentNotValidException argumentNotValidException){
 		List<FieldError> fields = argumentNotValidException.getFieldErrors();
 		List<FormErrorDto> errorDto = new ArrayList<>();
-		
 		fields.stream().forEach(f -> {
 			errorDto.add(new FormErrorDto(getMessage(f), f.getField()));
 		});

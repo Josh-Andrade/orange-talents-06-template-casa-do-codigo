@@ -1,4 +1,4 @@
-package br.com.orange.cdc.config.validation;
+package br.com.orange.cdc.config.handler;
 
 public class FormErrorDto {
 
