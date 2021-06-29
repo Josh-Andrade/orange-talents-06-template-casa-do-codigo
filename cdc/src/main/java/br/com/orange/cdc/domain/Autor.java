@@ -2,6 +2,7 @@ package br.com.orange.cdc.domain;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class Autor {
 	private Long id;
 	@NotBlank
 	@Email
+	@Column(unique = true)
 	private String email;
 	@NotBlank
 	private String nome;

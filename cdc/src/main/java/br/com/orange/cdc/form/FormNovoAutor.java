@@ -17,6 +17,9 @@ public class FormNovoAutor {
 	@Size(max = 400)
 	private String descricao;
 
+	public FormNovoAutor() {
+	}
+	
 	public FormNovoAutor(@NotBlank @Email String email, @NotBlank String nome,
 			@NotBlank @Size(max = 400) String descricao) {
 		this.email = email;

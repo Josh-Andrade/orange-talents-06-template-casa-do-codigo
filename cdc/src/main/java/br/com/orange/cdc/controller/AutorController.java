@@ -24,7 +24,6 @@ public class AutorController {
 	
 	private EmailUnicoValidator emailUnicoValidator;
 	
-	@Autowired
 	public AutorController(AutorRepository autorRepository, EmailUnicoValidator emailUnicoValidator) {
 		this.autorRepository = autorRepository;
 		this.emailUnicoValidator = emailUnicoValidator;
