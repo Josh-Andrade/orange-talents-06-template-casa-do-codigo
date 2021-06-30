@@ -19,14 +19,16 @@ public class Autor {
 	private Long id;
 	@NotBlank
 	@Email
-	@Column(unique = true)
+	@Column(unique = true, nullable = false)
 	private String email;
 	@NotBlank
+	@Column(nullable = false)
 	private String nome;
 	@NotBlank
 	@Size(max = 400)
-	@Column(length = 400)
+	@Column(length = 400, nullable = false)
 	private String descricao;
+	@Column(nullable = false)
 	private LocalDateTime horaCadastro = LocalDateTime.now();
 	
 	@Deprecated
