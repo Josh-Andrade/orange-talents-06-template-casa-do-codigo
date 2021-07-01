@@ -19,6 +19,7 @@ public class FormNovoAutor {
 	@Size(max = 400)
 	private String descricao;
 
+	@Deprecated
 	public FormNovoAutor() {
 	}
 	

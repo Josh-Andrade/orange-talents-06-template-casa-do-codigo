@@ -2,6 +2,7 @@ package br.com.orange.cdc.form;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,7 +14,6 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import br.com.orange.cdc.config.validation.DataFutura;
 import br.com.orange.cdc.config.validation.Exist;
 import br.com.orange.cdc.config.validation.ValorUnico;
 import br.com.orange.cdc.domain.Autor;
@@ -47,8 +47,9 @@ public class FormNovoLivro {
 	@Length(max = 13, min = 13, message = "O ISBN deve ter no minimo 13 dígitos e não mais do que isso")
 	private String isbn;
 
-	@DataFutura
+	@Future
 	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd")
+	@NotNull
 	private LocalDate dataPublicacao;
 
 	@NotNull

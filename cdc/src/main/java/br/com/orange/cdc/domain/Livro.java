@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,7 +19,6 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import br.com.orange.cdc.config.validation.DataFutura;
 import br.com.orange.cdc.config.validation.ValorUnico;
 
 @Entity
@@ -58,7 +58,7 @@ public class Livro {
 	@Column(length = 13, nullable = false)
 	private String isbn;
 
-	@DataFutura
+	@Future
 	@JsonFormat(shape = Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column(nullable = false)
 	private LocalDate dataPublicacao;

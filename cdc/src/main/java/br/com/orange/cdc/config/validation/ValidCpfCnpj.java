@@ -13,13 +13,12 @@ import javax.validation.Payload;
 @Documented
 @Retention(RUNTIME)
 @Target(FIELD)
-@Constraint(validatedBy = DataFuturaImpl.class)
-public @interface DataFutura {
+@Constraint(validatedBy = { CpfCnpjValidator.class })
+public @interface ValidCpfCnpj {
 
-	String message() default "A data precisa ser maior do que a atual";
+	String message() default "CPF/CNPJ inválido";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
-
 }

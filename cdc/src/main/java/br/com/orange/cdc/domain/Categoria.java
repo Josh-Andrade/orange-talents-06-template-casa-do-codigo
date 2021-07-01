@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
+import br.com.orange.cdc.config.validation.ValorUnico;
+
 @Entity
 public class Categoria {
 
@@ -15,6 +17,7 @@ public class Categoria {
 	private Long id;
 	@NotBlank
 	@Column(unique = true, nullable = false)
+	@ValorUnico(message = "Categoria já cadastrada", campo = "nome", entity = "Categoria")
 	private String nome;
 
 	@Deprecated

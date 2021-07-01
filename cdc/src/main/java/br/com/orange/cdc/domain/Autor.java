@@ -11,6 +11,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.orange.cdc.config.validation.ValorUnico;
+
 @Entity
 public class Autor {
 	 
@@ -20,6 +22,7 @@ public class Autor {
 	@NotBlank
 	@Email
 	@Column(unique = true, nullable = false)
+	@ValorUnico(message = "Email já cadastrado", campo = "email", entity = "Autor")
 	private String email;
 	@NotBlank
 	@Column(nullable = false)
