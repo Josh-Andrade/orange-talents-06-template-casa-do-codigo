@@ -1,5 +1,6 @@
 package br.com.orange.cdc.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
@@ -17,4 +18,5 @@ public interface EstadoRepository extends CrudRepository<Estado, Long>{
 	@Query(value = "SELECT e FROM Estado e WHERE e.id =:idEstado AND e.pais.id =:idPais")
 	Optional<Estado> verificaEstadoPertencePais(Long idEstado, Long idPais);
 	
+	Optional<List<Estado>> findByPais_Id(Long idPais);
 }
