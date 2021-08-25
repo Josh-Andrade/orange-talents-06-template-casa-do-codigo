@@ -10,7 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import br.com.orange.cdc.config.validation.ValidCpfCnpj;
+import br.com.orange.cdc.config.validation.CpfOrCnpj;
 import br.com.orange.cdc.config.validation.ValorUnico;
 
 @Entity
@@ -20,7 +20,7 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ValidCpfCnpj(message = "Cpf ou Cnpj invalido")
+	@CpfOrCnpj(message = "Cpf ou Cnpj invalido")
 	@NotBlank
 	@ValorUnico(message = "Cpf ou Cpnj já cadastrado", campo = "documento", entity = "Cliente")
 	private String documento;

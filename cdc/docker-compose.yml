@@ -1,0 +1,43 @@
+version:  '3'
+services:
+  ot6:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - "8090:8080"
+    restart:  always
+    container_name: casa-do-codigo
+    image:  cdc_ot6
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL:  jdbc:mysql://db_casa_do_codigo:3306/cdc?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: zupper
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - backend
+    
+  db:
+    image:  mysql
+    ports:
+      - "3300:3306"
+    restart:  always
+    container_name: db_casa_do_codigo
+    environment:
+      MYSQL_DATABASE: cdc
+      MYSQL_ROOT_PASSWORD:  zupper
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend  
+  
+# Volumes
+volumes:
+  db-data:
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend: 
+    driver: bridge

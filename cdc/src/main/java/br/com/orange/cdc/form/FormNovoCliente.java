@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import br.com.orange.cdc.config.validation.Exist;
-import br.com.orange.cdc.config.validation.ValidCpfCnpj;
+import br.com.orange.cdc.config.validation.CpfOrCnpj;
 import br.com.orange.cdc.config.validation.ValorUnico;
 import br.com.orange.cdc.domain.Cliente;
 import br.com.orange.cdc.domain.Estado;
@@ -16,7 +16,7 @@ import br.com.orange.cdc.repository.PaisRepository;
 
 public class FormNovoCliente {
 
-	@ValidCpfCnpj(message = "Cpf ou Cnpj invalido")
+	@CpfOrCnpj(message = "Cpf ou Cnpj invalido")
 	@NotBlank
 	@ValorUnico(message = "Cpf ou Cpnj já cadastrado", campo = "documento", entity = "Cliente")
 	private String documento;
